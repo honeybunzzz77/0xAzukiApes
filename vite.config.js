@@ -1,13 +1,12 @@
-import { defineConfig } from "vite";
-import postcss from "./postcss.config.js";
-import react from "@vitejs/plugin-react";
+import { defineConfig } from 'vite'
+import postcss from './postcss.config.js'
+import react from '@vitejs/plugin-react'
 import NodeGlobalsPolyfillPlugin from "@esbuild-plugins/node-globals-polyfill";
-import inject from "@rollup/plugin-inject";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   define: {
-    "process.env": process.env,
+    'process.env': process.env
   },
   css: {
     postcss,
@@ -23,7 +22,7 @@ export default defineConfig({
       plugins: [
         NodeGlobalsPolyfillPlugin({
           buffer: true,
-        }),
+        })
       ],
     },
   },
@@ -31,7 +30,7 @@ export default defineConfig({
     transformMixedEsModules: true,
   },
   resolve: {
-    mainFields: ["browser", "module", "main"],
+    mainFields: ['browser', 'module', 'main'],
     alias: [
       {
         find: /^~.+/,
@@ -42,33 +41,8 @@ export default defineConfig({
     ],
   },
   build: {
-    css: {
-      postcss,
-    },
-    rollupOptions: {
-      plugins: [inject({ Buffer: ["buffer", "Buffer"] })],
-      define: {
-        process: { env: {} },
-      },
-      // optimizeDeps: {
-      //   esbuildOptions: {
-      //     // Node.js global to browser globalThis
-      //     define: {
-      //       global: "globalThis",
-      //     },
-      //   },
-      // },
-    },
-    resolve: {
-      mainFields: ["browser", "module", "main"],
-      alias: [
-        {
-          find: /^~.+/,
-          replacement: (val) => {
-            return val.replace(/^~/, "");
-          },
-        },
-      ],
-    },
-  },
-});
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    }
+  } 
+})
