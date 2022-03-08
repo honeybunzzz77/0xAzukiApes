@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>window.global = globalThis</script>
+    <link rel="icon" type="image" href="/src/images/0xAzukiApes.jpeg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0xAzukiApes</title>
+    <script>
+      if (localStorage.theme === 'dark' || !('theme' in localStorage)) {
+        document.querySelector('html').classList.add('dark');
+      } else {
+        document.querySelector('html').classList.remove('dark');
+      }        
+    </script>    
+  </head>
+  <body class="font-inter antialiased bg-black text-white tracking-tight">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
