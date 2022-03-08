@@ -48,7 +48,7 @@ export default defineConfig({
       transformMixedEsModules: true,
     },
     resolve: {
-      mainFields: ['browser', 'module', 'main'],
+      mainFields: ['browser', 'module', 'main', 'index'],
       alias: [
         {
           find: /^~.+/,
