@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import postcss from './postcss.config.js'
 import react from '@vitejs/plugin-react'
 import NodeGlobalsPolyfillPlugin from "@esbuild-plugins/node-globals-polyfill";
+import inject from "@rollup/plugin-inject";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -44,11 +45,24 @@ export default defineConfig({
     css: {
       postcss,
     },
-    commonjsOptions: {
-      transformMixedEsModules: true,
+    rollupOptions: {
+      plugins: [inject({ Buffer: ["buffer", "Buffer"] })
+    ],
+      define: {
+        process: {env:{}},
     },
+
+      optimizeDeps: {
+        esbuildOptions: {
+          // Node.js global to browser globalThis
+          define: {
+            global: "globalThis",
+          },
+        },
+      },
+   },
     resolve: {
-      mainFields: ['browser', 'module', 'main', 'index'],
+      mainFields: ['browser', 'module', 'main'],
       alias: [
         {
           find: /^~.+/,
