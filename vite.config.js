@@ -41,8 +41,25 @@ export default defineConfig({
     ],
   },
   build: {
+    css: {
+      postcss,
+    },
     commonjsOptions: {
       transformMixedEsModules: true,
-    }
+    },
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
+    resolve: {
+      mainFields: ['browser', 'module', 'main'],
+      alias: [
+        {
+          find: /^~.+/,
+          replacement: (val) => {
+            return val.replace(/^~/, "");
+          },
+        },
+      ],
+    },
   } 
 })
