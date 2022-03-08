@@ -7,14 +7,23 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@esbuild-plugins/node-globals-polyfill": "^0.1.1",
+    "@metamask/safe-event-emitter": "^2.0.0",
     "@tailwindcss/forms": "^0.4.0",
+    "@walletconnect/web3-provider": "^1.7.4",
     "aos": "^3.0.0-beta.6",
+    "browser-assert": "^1.2.1",
+    "eth-block-tracker": "^5.0.1",
+    "ethers": "^5.5.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-flatpickr": "^3.10.7",
     "react-router-dom": "^6.2.1",
     "react-transition-group": "^4.4.1",
-    "swiper": "^6.8.4"
+    "safe-event-emitter": "^1.0.1",
+    "swiper": "^6.8.4",
+    "util": "^0.10.3",
+    "web3modal": "^1.9.5"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
