@@ -47,9 +47,6 @@ export default defineConfig({
     commonjsOptions: {
       transformMixedEsModules: true,
     },
-    commonjsOptions: {
-      transformMixedEsModules: true,
-    },
     resolve: {
       mainFields: ['browser', 'module', 'main'],
       alias: [

@@ -1,4 +1,3 @@
-
 # Appy React
 
 React landing page template designed by Cruip.
