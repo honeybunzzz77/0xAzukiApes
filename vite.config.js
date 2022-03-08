@@ -50,16 +50,14 @@ export default defineConfig({
       define: {
         process: { env: {} },
       },
-      external: "main.jsx",
-
-      optimizeDeps: {
-        esbuildOptions: {
-          // Node.js global to browser globalThis
-          define: {
-            global: "globalThis",
-          },
-        },
-      },
+      // optimizeDeps: {
+      //   esbuildOptions: {
+      //     // Node.js global to browser globalThis
+      //     define: {
+      //       global: "globalThis",
+      //     },
+      //   },
+      // },
     },
     resolve: {
       mainFields: ["browser", "module", "main"],
