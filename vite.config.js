@@ -42,7 +42,6 @@ export default defineConfig({
     ],
   },
   build: {
-    entry: "src/main.jsx",
     css: {
       postcss,
     },
@@ -51,6 +50,8 @@ export default defineConfig({
       define: {
         process: { env: {} },
       },
+      external: "main.jsx",
+
       optimizeDeps: {
         esbuildOptions: {
           // Node.js global to browser globalThis
